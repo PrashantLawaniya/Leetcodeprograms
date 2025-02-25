@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+        int low=0 , high=nums.size()-1;
+        int pos=0 , neg=0;
+
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(nums[mid]<0){
+                neg=mid+1;
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
+        low= 0, high = nums.size()-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(nums[mid]>0){
+                pos=nums.size()-mid;
+                high=mid-1;
+            }else{
+                low=mid+1;
+            }
+        }
+        return max(pos,neg);
+    }
+};
