@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int sumOfUnique(vector<int>& nums) {
+        unordered_map<int,int> frq;
+        int sum=0;
+        for(int number: nums){
+            frq[number]++;
+        }
+
+        for(auto element: frq){
+            if(element.second==1){
+                sum+=element.first;
+            }
+        }
+        return sum;
+    }
+};
