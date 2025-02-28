@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int findLucky(vector<int>& arr) {
+        unordered_map<int,int> element;
+        int maxi=-1 ;
+        for(int val: arr){
+            element[val]++;
+        }
+        for(auto no: element){
+           if(no.first==no.second){
+              maxi=max(maxi,no.first);
+             }
+            
+        }
+        return maxi;
+    }
+};
