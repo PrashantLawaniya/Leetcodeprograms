@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int mostFrequentEven(vector<int>& nums) {
+        unordered_map<int,int> mpp;
+        int maxi=-1;
+        int ans=-1;
+
+        for(int element:nums){
+            if(element%2==0){
+            mpp[element]++;
+           maxi=max(maxi,mpp[element]);
+            }
+         }
+        for(auto val: mpp){
+              if (val.second == maxi) {
+                if (ans == -1 || val.first < ans) {
+                    ans = val.first;
+                }
+              }
+        }         
+       return ans;
+    }
+};
