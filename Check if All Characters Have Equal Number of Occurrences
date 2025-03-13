@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool areOccurrencesEqual(string s) {
+        unordered_map<char,int> mpp;
+
+        for(auto characters:s){
+            mpp[characters]++;
+        }
+        int firstoccurrence=mpp.begin()->second;
+        
+        for(auto no:mpp){
+            if(no.second!=firstoccurrence){
+                return false;
+            }
+        }
+        return true;
+    }
+};
