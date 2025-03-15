@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int countEven(int num){
+        int count=0;
+        int temp;
+        for(int i=2;i<=num;i++){
+         int sum=0;
+         temp=i;
+       while(temp>0){
+        int lastdigit=temp%10;
+        sum+=lastdigit;
+        temp=temp/10;
+       }
+       if(sum%2==0){
+            count++;
+        }
+    }
+       return count;
+    }
+
+};
