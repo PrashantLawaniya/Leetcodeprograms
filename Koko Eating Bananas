@@ -3,7 +3,7 @@ public:
    int findmax(vector<int>& piles){
     int n=piles.size();
     int maxi=INT_MIN;
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n;i++){                                       // also we use foreach loop                                       
          maxi=max(maxi,piles[i]);
     }
     return maxi;
