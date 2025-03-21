@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int numberOfSteps(int num) {
+        int no_of_Steps=0; 
+        while(num>0){
+            no_of_Steps++;
+            if(num%2==0)
+            {
+                num=num/2;
+            }
+            else
+            {
+                num=num-1;
+            }
+        }
+        return no_of_Steps;
+    }
+};
