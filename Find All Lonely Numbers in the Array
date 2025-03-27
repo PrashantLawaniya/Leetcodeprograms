@@ -1,0 +1,49 @@
+class Solution {
+public:
+    vector<int> findLonely(vector<int>& nums) {
+        vector<int> ans;
+        set<int> myset(nums.begin(),nums.end());
+        unordered_map<int, int> freq; 
+        for (int num : nums) {
+            freq[num]++;
+        }
+        for (int num : nums)
+        {
+        int before=num-1; int after=num+1;
+        if(freq[num] == 1 && myset.find(before) == myset.end() && myset.find(after) == myset.end() )
+        {
+               ans.push_back(num);
+        }
+        }
+        return ans;
+    
+     
+    }
+};    
+
+or
+
+class Solution {
+public:
+    vector<int> findLonely(vector<int>& nums) {
+        vector<int> lonelynumbers;
+        unordered_map<int,int> mpp;
+        for(int val: nums)
+        {
+            mpp[val]++;
+        }
+
+        for(auto pair:mpp)
+        {
+            if(pair.second==1)
+            {
+                if(mpp.find(pair.first-1)==mpp.end() && mpp.find(pair.first+1)==mpp.end())
+                {
+                      lonelynumbers.push_back(pair.first);
+                }
+            }
+        }
+        return lonelynumbers;
+
+    }
+};
