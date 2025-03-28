@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> applyOperations(vector<int>& nums) {
+        int  first=0,second=1;
+        while(second<nums.size())
+          {
+            if(nums[first]==nums[second])
+            {
+                nums[first]=nums[first]*2;
+                nums[second]=0;
+               
+            }
+             first++;
+             second++;
+           }
+             int nonzeroindex=0;
+           for(int i=0;i<nums.size();i++)
+           {
+              
+                if(nums[i]!=0)
+                {
+                     swap(nums[i],nums[nonzeroindex]);
+                     nonzeroindex++;
+                }
+
+           }
+           
+           return nums;
+    }
+};
