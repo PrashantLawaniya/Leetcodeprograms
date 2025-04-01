@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+       unordered_map<int,int> freqMap;
+       unordered_set<int> uniqueSet;
+
+    for (int num : nums1) uniqueSet.insert(num);
+    for (int num : uniqueSet) freqMap[num]++;
+    uniqueSet.clear(); 
+
+    
+    for (int num : nums2) uniqueSet.insert(num);
+    for (int num : uniqueSet) freqMap[num]++;
+    uniqueSet.clear(); 
+
+    for (int num : nums3) uniqueSet.insert(num);
+    for (int num : uniqueSet) freqMap[num]++;
+    uniqueSet.clear();
+    vector<int> ans;
+       for(auto pair:freqMap)
+       {
+           if(pair.second>=2)
+           {
+              ans.push_back(pair.first);
+           }
+       }
+       return ans;
+    }
+};
