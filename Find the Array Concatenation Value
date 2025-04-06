@@ -1,0 +1,23 @@
+class Solution {
+public:
+    long long findTheArrayConcVal(vector<int>& nums) {
+         long long i=0,j=nums.size()-1;
+         long long concatenation_value=0;
+         while(i<=j)
+         {
+              if(i==j)
+             {
+                concatenation_value+=nums[i];
+                break;
+             }
+            
+             string s=to_string(nums[i])+to_string(nums[j]);
+             concatenation_value+=stoi(s);
+             i++;
+             j--;
+             
+            
+         }
+         return concatenation_value;
+    }
+};
