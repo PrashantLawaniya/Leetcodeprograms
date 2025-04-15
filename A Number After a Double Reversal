@@ -1,0 +1,29 @@
+class Solution {
+public:
+  int reverseno(int n)
+  {
+      int original=n;
+        int reverse=0;
+        while(original>=0)
+        {
+            if(original==0) break;
+            int temp=original%10;
+            reverse=reverse*10+temp;
+            original=original/10;
+        }
+          return reverse;
+  }
+    bool isSameAfterReversals(int num) {
+       int reversed1=reverseno(num);
+       int reversed2=reverseno(reversed1);
+         if(reversed2==num)
+         {
+            return true;
+         }
+         else
+         {
+            return false;
+         }
+
+    }
+};
