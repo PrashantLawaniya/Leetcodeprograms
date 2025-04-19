@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool difference(int x,int y,int k)
+    {
+         if(abs(x-y)==k)
+         {
+         return true;
+         }
+         else
+         {
+            return false;
+         }
+    }
+    int countKDifference(vector<int>& nums, int k) {
+        int n=nums.size();
+        int count=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(difference(nums[i],nums[j],k))
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+};
