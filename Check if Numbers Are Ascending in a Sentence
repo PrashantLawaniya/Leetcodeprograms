@@ -1,0 +1,30 @@
+class Solution {
+public:
+    bool areNumbersAscending(string s) {
+        int prev=0;
+        int i=0;
+        while(i<s.length())
+        {
+            if(isdigit(s[i]))
+            {
+            int num=0;
+            while(i<s.length() && isdigit(s[i]))
+            {
+                num=num*10+(s[i]-'0');
+                i++;
+            }
+            if(num<=prev)
+            {
+                return false;
+            }
+            prev=num;
+            }
+            else
+            {
+                i++;
+            }
+         
+        }
+        return true;
+    }
+};
