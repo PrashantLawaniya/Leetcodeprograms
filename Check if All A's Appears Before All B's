@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool checkString(string s) {
+       int i=0,j=0;
+      int maxi=-1;
+      int mini=INT_MAX;
+       while(i<=s.length() && j<=s.length())
+       {
+       
+          if(s[i]=='a')
+          {
+            maxi=max(maxi,i);
+          }
+          else if(s[j]=='b')
+          {
+              mini=min(mini,j);
+          }
+          i++;
+          j++;
+          
+       }
+       if(maxi<mini)
+       {
+        return true;
+       }
+       else
+       {
+          return false;
+       }
+    }
+};
