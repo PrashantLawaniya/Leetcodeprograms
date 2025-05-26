@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int findPermutationDifference(string s, string t) {
+        int i=0,jj=0;
+        int diff=0;
+        int sum=0;
+        while(i<s.length() && jj<t.length())
+        {
+            if(s[i]!=t[jj])
+            {
+                jj++;
+            }
+            else if(s[i]==t[jj])
+            {
+                diff=abs(i-jj);
+                sum+=diff;
+                i++;
+                jj=0;
+            }
+        }
+        return sum;
+    }
+};
