@@ -1,0 +1,45 @@
+class Solution {
+public:
+    string triangleType(vector<int>& nums) {
+        string ans="";
+        int i=0,j=1;
+        int n=nums.size();
+        int count=0;
+        int e=0;
+        sort(nums.begin(),nums.end());
+            if((nums[i]+nums[j])>nums[n-1] && (nums[j]+nums[n-1])>nums[i] 
+            && (nums[i]+nums[n-1])>nums[j])
+            {
+               while(j<nums.size())
+               {
+                 if(nums[i]!=nums[j])
+                 {
+                    count++;
+                    i++;
+                 }
+                 else if(nums[i]==nums[j])
+                 {
+                    e++;
+                 }
+                 j++;
+               }
+               if(count==2)
+               {
+                   return "scalene";
+               }
+               else if(e==2)
+               {
+                   return "equilateral";
+               }
+               else
+               {
+                   return "isosceles";
+                   
+               }
+            }
+            else
+            {
+                return "none";
+            }
+    }
+};
