@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int maxDifference(string s) {
+        int pairsposi=INT_MAX;
+        int  pairsneg=INT_MIN;
+        unordered_map<char,int> mpp;
+        for(auto n:s)
+        {
+            mpp[n]++;
+        }
+        for(auto pair:mpp)
+        {
+            if((pair.second)%2!=0)
+            {
+               
+                 pairsneg=max(pairsneg,pair.second);
+            }
+            else if((pair.second)%2==0)
+            {
+                 pairsposi=min(pairsposi,pair.second);
+            }
+        }
+        
+        return (pairsneg-pairsposi);
+    }
+};
