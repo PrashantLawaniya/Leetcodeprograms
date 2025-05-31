@@ -1,0 +1,42 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        unordered_map<char,int> mpp;
+        for(char m:magazine)
+        {
+            mpp[m]++;
+        }
+        for(char mp:ransomNote)
+        {
+            if(mpp.find(mp)!=mpp.end() && mpp[mp]>0)
+            {
+                mpp[mp]--;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+ or using array
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        int freq[26] = {0};  // Frequency array for letters 'a' to 'z
+
+        for (char c : magazine) {
+            freq[c - 'a']++;  // Increment count for each letter in magazine
+        }
+
+        for (char c : ransomNote) {
+            if (freq[c - 'a'] == 0) {
+                return false;  // Letter not present
+            }
+            freq[c - 'a']--;  // Use up one occurrence
+        }
+
+        return true;  // All letters in ransomNote were available in magazine
+    }
+};
