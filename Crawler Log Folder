@@ -1,0 +1,46 @@
+class Solution {
+public:
+    int minOperations(vector<string>& logs) {
+        int count=0;
+        for(string s:logs)
+        {
+            if(s=="./") continue;
+            if(s=="../")
+            {
+                count--;
+                count=max(0,count);
+            }
+            else
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+};
+
+    or using stack
+
+class Solution {
+public:
+    int minOperations(vector<string>& logs) {
+        stack<string> str;
+        for(string s:logs)
+        {
+            if(s=="./") continue;
+            if(s=="../")
+            {
+                if(!str.empty())
+                {
+                    str.pop();
+                }
+            }
+            else
+            {
+                str.push(s);
+            }
+          
+        }
+        return str.size();
+    }
+};
