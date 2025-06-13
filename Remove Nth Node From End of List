@@ -1,0 +1,51 @@
+
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if(head==null || head.next==null)  return null;
+        ListNode temp=head;
+        int count=0;
+        while(temp!=null)                               brute force
+        {
+            count++;
+            temp=temp.next;
+        }
+        int prev_delete=(count-n)-1;
+          if (prev_delete < 0) {
+            return head.next;
+        }
+        count=0;
+        temp=head;
+        while(prev_delete!=count)
+        {
+            prev_delete--;
+            temp=temp.next;
+        }
+      temp.next=temp.next.next;
+      return head;
+    }
+}
+
+
+
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(head==NULL || head->next==NULL)  return NULL;
+        ListNode* slow=head;
+        ListNode* fast=head;
+        for(int i=1;i<=n;i++)
+       {
+           fast=fast->next;                                     using two pointer
+       }
+       if(fast==NULL) return head->next;
+       while(fast->next!=NULL)
+       {
+          slow=slow->next;
+          fast=fast->next;
+       }
+       ListNode* deletednode=slow->next;
+       slow->next=slow->next->next;
+       delete deletednode;
+       return head;
+    }
+};
