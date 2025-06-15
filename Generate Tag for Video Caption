@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string tolowercase1(string word) {
+        string temp = "";
+        for (int i = 0; i < word.size(); i++) {
+            if (i == 0) temp += tolower(word[i]);
+            else temp += tolower(word[i]);
+        }
+        return temp;
+    }
+
+    string generateTag(string caption) {
+        string ans = "#", word = "";
+        bool first = true;
+      // in count=0;
+        for (int i = 0; i <= caption.size(); i++) {
+            if (i == caption.size() || caption[i] == ' ') {
+                if (!word.empty()) {
+                    if (first) {
+                        ans += tolowercase1(word);
+                        first = false;
+                    } else {
+                        ans += toupper(word[0]);
+                        for (int j = 1; j < word.size(); j++)
+                            ans += tolower(word[j]);
+                    }
+                    if (ans.size() > 100) break;
+                    word = "";
+                }
+            } else {
+                word += caption[i];
+            }
+        }
+
+        return ans.substr(0, 100);
+    }
+};
