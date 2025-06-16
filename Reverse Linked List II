@@ -1,0 +1,29 @@
+
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if(head==NULL || head->next==NULL ) return head;
+        ListNode* temp=head;
+        for(int i=1;i<left;i++)
+        {
+            temp=temp->next;
+        }
+          stack<int> stk;
+          ListNode* dummy=temp;
+          int count=0;
+          while(count<=(right-left))
+          {
+              stk.push(dummy->val);
+              count++;
+              dummy=dummy->next;
+          }
+          while(!stk.empty())
+          {
+             temp->val=stk.top();
+             stk.pop();
+             temp=temp->next;
+          }
+          return head;
+           
+    }
+};
