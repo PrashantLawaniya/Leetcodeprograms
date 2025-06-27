@@ -1,0 +1,40 @@
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int,int> mpp;
+        for(int n:arr)
+        {
+            mpp[n]++;
+        }
+        unordered_set<int>frqset;
+        for(auto pair:mpp)
+        {
+            if(frqset.find(pair.second)!=frqset.end()) 
+            {
+                return false;
+            }
+            frqset.insert(pair.second);
+        }
+        return true;
+    }
+};
+or
+
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int,int> mpp;
+        for(int n:arr)
+        {
+            mpp[n]++;
+        }
+        unordered_set<int>frqset;
+        for(auto pair:mpp)
+        {
+            frqset.insert(pair.second);
+        }
+
+        return mpp.size()==frqset.size();
+        
+    }
+};
