@@ -1,0 +1,67 @@
+class Solution {
+public:
+    bool halvesAreAlike(string s) {
+        int n=s.size();
+        int count=0;
+       for(int i=0;i<s.size();i++)
+       {
+          s[i]=tolower(s[i]);
+          if(i<n/2)
+          {
+             if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u')
+             {
+                count++;
+             }
+          }
+          else
+          {
+              if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u') {
+              count--;
+             }
+          }
+       }
+       return (count==0);
+
+    }
+};
+or
+
+class Solution {
+public:
+    bool halvesAreAlike(string s) {
+        int n=s.size();
+        vector<char> a;
+        vector<char> b;
+       for(int i=0;i<s.size();i++)
+       {
+          while(i<=(n-1)/2)
+          {
+          a.push_back(s[i]);
+          i++;
+          }
+          b.push_back(s[i]);
+       }
+
+       int counta=0;
+       int countb=0;
+        for(int i=0;i<a.size();i++)
+        {
+            if(a[i]=='a' || a[i]=='e' || a[i]=='i' || a[i]=='o' ||  a[i]=='u' ||
+            a[i]=='A' ||  a[i]=='E' || a[i]=='I' || a[i]=='O' || a[i]=='U'  )
+            {
+                counta++;
+            }
+        }
+         for(int i=0;i<b.size();i++)
+        {
+            if(b[i]=='a' || b[i]=='e' || b[i]=='i' || b[i]=='o' ||  b[i]=='u' ||
+            b[i]=='A' ||  b[i]=='E' || b[i]=='I' || b[i]=='O' || b[i]=='U'  )
+            {
+                countb++;
+            }
+        }
+        if(counta==countb) return true;
+        else               return false;
+
+    }
+};
