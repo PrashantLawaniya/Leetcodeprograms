@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int maxFreqSum(string s) {
+        unordered_map<char,int> mpp;
+        for(auto ch:s)
+        {
+            mpp[ch]++;
+        }
+        int vowel=0;
+        int consonant=0;
+        for(auto pair:mpp)
+        {
+            if(pair.first=='a' || pair.first=='e' || pair.first=='i' || 
+            pair.first=='o' || 
+            pair.first=='u' )
+            {
+               vowel=max(vowel,pair.second);
+            }
+            else if(pair.first!='a' || pair.first!='e' || pair.first!='i' || 
+            pair.first!='o' || 
+            pair.first!='u' )
+            {
+               consonant=max(consonant,pair.second);
+            }
+
+        }
+        return (vowel+consonant);
+    }
+};
