@@ -1,0 +1,83 @@
+class Solution {
+public:
+    int countWords(vector<string>& words1, vector<string>& words2) {
+        int count=0;
+        unordered_map<string,int> mpp1,mpp2;
+        for(auto v:words1)
+        {
+            mpp1[v]++;                                   best solution
+        }
+        for(auto v:words2)
+        {
+            mpp2[v]++;
+        }
+        for (auto& pair : mpp1) {
+            string word = pair.first;
+            if (pair.second == 1 && mpp2[word] == 1) {
+                count++;
+            }
+        }
+       
+       return count;
+      
+    }
+}; 
+or
+class Solution {
+public:
+    int countWords(vector<string>& words1, vector<string>& words2) {
+        int count=0;
+        unordered_map<string,int> mpp1;
+        unordered_map<string,int> mpp2;
+        for(auto v:words1)
+        {
+            mpp1[v]++;
+        }
+        for(auto v:words2)
+        {
+            mpp2[v]++;
+        }
+        for(auto pair:mpp1)
+        {
+            for(auto pair1:mpp2)
+            {
+                if(pair.second==1 && pair1.second==1)
+                {
+                    if(pair.first==pair1.first) count++;
+                }
+            }
+        }
+       
+       return count;
+      
+    }
+};
+or 
+class Solution {
+public:
+    int countWords(vector<string>& words1, vector<string>& words2) {
+        int count=0;
+        unordered_map<string,int> mpp1,mpp2;
+        for(auto v:words1)
+        {
+            mpp1[v]++;
+        }
+        for(auto v:words2)
+        {
+            mpp2[v]++;
+        }
+        for(auto pair:mpp1)
+        {
+            for(auto pair1:mpp2)
+            {
+                if(pair.second==1 && pair1.second==1)
+                {
+                    if(pair.first==pair1.first) count++;
+                }
+            }
+        }
+       
+       return count;
+      
+    }
+};
