@@ -1,0 +1,50 @@
+class Solution {
+public:
+    vector<string> uncommonFromSentences(string s1, string s2) {
+    vector<string> combined;
+    int n = 0;
+    vector<string> ans;
+    stringstream ss1(s1);
+    string word;
+    while (ss1 >> word) {
+        combined.push_back(word);
+    }
+
+    stringstream ss2(s2);
+    while (ss2 >> word) {
+        combined.push_back(word);
+    }
+    for(int i=0;i<combined.size();i++)
+      {
+        int count=0;
+        for(int j=0;j<combined.size();j++)
+        {
+            if(i!=j && combined[i]==combined[j])
+            {
+                count++;
+            }
+        }
+          if(count==0)  ans.push_back(combined[i]);
+      }
+     return ans;
+    }
+}; 
+or
+class Solution {
+public:
+    vector<string> uncommonFromSentences(string s1, string s2) {
+        unordered_map<string,int> frq;
+        string combined=s1+" "+s2;
+        string allwords;
+        vector<string> ans;
+        stringstream ss(combined);
+        while(ss>>allwords)
+        {
+            frq[allwords]++;
+        }
+        for(auto it : frq) {
+            if(it.second==1)  ans.push_back(it.first);
+        }
+     return ans;
+    }
+};
