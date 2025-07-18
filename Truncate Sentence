@@ -1,0 +1,13 @@
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+       count=0;
+       trancate_sentence=""
+
+       for i in range(len(s)):
+          if s[i]==' ':
+            count+=1
+            if count==k:
+                break;
+          trancate_sentence+=s[i]
+
+       return trancate_sentence
