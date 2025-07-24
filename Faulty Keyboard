@@ -1,0 +1,20 @@
+class Solution {
+public:
+    string finalString(string s) {
+        int i=0;
+        string final_string;
+        while(i<s.size())
+        {
+            if(s[i]=='i')
+            {
+                reverse(final_string.begin(),final_string.end());
+            }
+            else
+            {
+            final_string+=s[i];
+            }
+         i++;
+        }
+        return final_string;
+    }
+};
