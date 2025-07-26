@@ -1,0 +1,46 @@
+class Solution {
+public:
+    vector<int> numberOfLines(vector<int>& widths, string s) {
+        unordered_map<char,int> alphabetmap;
+        int count=1;
+        int sum=0;
+        for(char ch='a';ch<='z';ch++)
+        {
+            alphabetmap[ch]=ch-'a';
+        }
+        for(int i=0;i<s.size();i++)
+        {
+            int width=widths[alphabetmap[s[i]]];
+            if(sum+width>100)
+            {
+               count++;
+               sum=width;
+            }
+            else sum+=width;
+            
+        }
+        return {count,sum};
+    }
+};
+or
+
+class Solution {
+public:
+    vector<int> numberOfLines(vector<int>& widths, string s) {
+        int sum = 0;
+        int count = 1;
+
+        for (int i = 0; i < s.size(); i++) {
+            int width = widths[s[i] - 'a']; 
+
+            if (sum + width > 100) {
+                count++;
+                sum = width;  
+            } else {
+                sum += width;
+            }
+        }
+
+        return {count, sum};
+    }
+};
