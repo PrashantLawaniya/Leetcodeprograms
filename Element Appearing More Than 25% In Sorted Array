@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int findSpecialInteger(vector<int>& arr) {
+        float size=(25*arr.size())/100;
+        int count=0;
+        int i=0;
+        int j=0;
+        while(i<arr.size() || j<arr.size())
+        {
+             if(count>size) return arr[i];
+           if(arr[i]==arr[j])
+           {
+            count++;
+            j++;
+           }
+           else if(arr[i]!=arr[j])
+           {
+           i+=count;
+           j=i;
+            count=0;
+           }
+        }
+        return 0;
+    }
+};
