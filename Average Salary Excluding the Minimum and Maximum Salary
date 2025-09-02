@@ -1,0 +1,14 @@
+class Solution:
+    def average(self, salary: List[int]) -> float:
+        n=len(salary);
+        salary.sort();
+        largest=salary[n-1];
+        smallest=salary[0];
+        total=n-2;
+        sum=0;
+        for i in range(len(salary)):
+              if(salary[i]!=largest and salary[i]!=smallest):
+                 sum+=salary[i]
+        
+        
+        return sum/total;
