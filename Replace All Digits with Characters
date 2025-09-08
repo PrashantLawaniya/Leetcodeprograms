@@ -1,0 +1,12 @@
+class Solution {
+public:
+    string replaceDigits(string s) {
+        string ans;
+        for(int i=1;i<s.size();i+=2)
+        {
+            char temp=s[i-1];
+             s[i]=temp+(s[i]-'0');
+        }
+        return s;
+    }
+};
