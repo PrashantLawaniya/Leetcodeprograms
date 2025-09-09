@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<int> recoverOrder(vector<int>& order, vector<int>& friends) {
+        vector<int> temp;
+        for(int i=0;i<order.size();i++)
+        {
+            for(int j=0;j<friends.size();j++)
+            {
+               if(order[i]==friends[j]) temp.push_back(order[i]);
+            }
+        }
+       return temp;
+    }
+};
+
+or
+
+class Solution {
+public:
+    vector<int> recoverOrder(vector<int>& order, vector<int>& friends) {
+        vector<int> temp;
+        for(int i=0;i<friends.size();i++)
+        {
+            for(int j=0;j<order.size();j++)
+            {
+               if(friends[i]==order[j]) temp.push_back(j);
+            }
+        }
+        sort(temp.begin(),temp.end());
+        vector<int> ans;
+        for(int i=0;i<temp.size();i++)
+        {
+            ans.push_back(order[temp[i]]);
+        }
+        return ans;
+    }
+};
