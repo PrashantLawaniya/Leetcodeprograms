@@ -1,0 +1,55 @@
+class Solution {
+public:
+    int getLeastFrequentDigit(int n) {
+        int frq[10]={0};
+        while(n>0)
+        {
+            int last=n%10;
+            frq[last]++;
+            n=n/10;
+        }
+        int mini=INT_MAX;
+        int digit=INT_MAX;
+        for(int i=0;i<10;i++)
+        {
+             if (frq[i] > 0) {
+            mini=min(mini,frq[i]);
+             }
+        }
+        for(int i=0;i<10;i++)
+        {
+           if(frq[i]==mini)
+           {
+              digit=min(digit,i);
+           }
+        }
+        return digit;
+    }
+};
+or
+class Solution {
+public:
+    int getLeastFrequentDigit(int n) {
+        string s=to_string(n);
+        unordered_map<int,int> mpp;
+        for(auto ch:s)
+        {
+            mpp[ch-'0']++;
+        }
+        int mini=INT_MAX;
+        int digit=INT_MAX;
+        for(auto pair:mpp)
+        {
+           mini=min(mini,pair.second);
+        }
+          for(auto pair:mpp)
+        {
+           if(pair.second==mini)
+           {
+             digit=min(digit,pair.first);
+           }
+        }
+      
+        return digit;
+    }
+};
