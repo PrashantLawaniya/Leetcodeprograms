@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int totaltime(vector<int>& task)
+    {
+        int sum=0;
+        for(int i=0;i<task.size();i++)
+        {
+             sum+=task[i];   
+        }    
+        return sum;
+    }
+    int earliestTime(vector<vector<int>>& tasks) {
+        int mini=INT_MAX;
+        for(int i=0;i<tasks.size();i++)
+        {
+           mini=min(mini,totaltime(tasks[i]));     
+        }    
+        return mini;
+    }
+};
