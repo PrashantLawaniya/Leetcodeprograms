@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int smallestAbsent(vector<int>& nums) {
+               
+        int n = nums.size();
+        double sum = 0;  
+        for(int i = 0; i < n; i++) {
+            sum += nums[i];
+        }
+          double avg=sum/n;
+          for (int average = 1; ; average++) {  
+             if (avg<average && find(nums.begin(), nums.end(), average) == nums.end()) 
+             {
+                return average;   
+            }
+        }
+        return 0; // not rea
+    }
+};
+
+or
+
+class Solution {
+public:
+    int smallestAbsent(vector<int>& nums) {
+               
+        int n = nums.size();
+        double sum = 0;  
+        for(int i = 0; i < n; i++) {
+            sum += nums[i];
+        }
+          double avg=sum/n;
+          for (int average = 1; ; average++) {  
+            bool found = false;
+            for (int j = 0; j < n; j++) {
+                if (average == nums[j]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (avg<average && !found) {
+                return average;   // return first absent positive
+            }
+        }
+        return 0; // not rea
+    }
+};
