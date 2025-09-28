@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int no(int n)
+    {
+         int temp=n;
+    long long count=1;
+       while(n>0)
+        {
+            count=count*10;
+            int last=n%10;
+            n=n/10;         
+        }   
+        int temp2=temp/(count/10);
+        return temp2*(count/10);
+    }
+    vector<int> decimalRepresentation(int n) {
+       vector<int> ans;
+        while(n>0)
+        {
+            ans.push_back(no(n));
+            n=n-no(n);
+        }
+        
+        return ans;
+    }
+};
