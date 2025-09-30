@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> sum(vector<int> temp)
+    {
+        int n=temp.size();
+        vector<int> newNums(n-1,0);
+        for(int i=0;i<n-1;i++)
+        {
+            newNums[i]=(temp[i] + temp[i+1]) % 10;
+        }
+        return newNums;
+    }
+    int triangularSum(vector<int>& nums) {
+        int n=nums.size();
+       while(n!=1)
+       {
+           nums=sum(nums);
+           n=nums.size();
+       }
+      
+        return nums[0];
+    }
+};
