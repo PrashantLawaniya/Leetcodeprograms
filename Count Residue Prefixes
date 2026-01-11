@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int residuePrefixes(string s) {
+        int residue=0;
+       for(int i=1;i<=s.size();i++)
+       {
+          int number=noofdistinct(s.substr(0,i));
+          if(number==i%3)
+          {
+            residue++;a
+          }
+       }
+       return residue;
+    }
+  int noofdistinct(string n)
+  {
+       int count=0;
+       set<char> sett;
+       for(auto var:n)
+       {
+          sett.insert(var);
+       }
+    
+       return sett.size();
+  }
+};
